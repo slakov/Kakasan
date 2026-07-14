@@ -288,9 +288,9 @@ svg {
 
 .hero__facts {
   display: grid;
-  max-width: 570px;
+  max-width: 680px;
   margin: 64px 0 0;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--line);
 }
 
@@ -1054,7 +1054,7 @@ svg {
   }
 
   .hero h1 {
-    font-size: clamp(64px, 18vw, 92px);
+    font-size: clamp(56px, 17vw, 80px);
   }
 
   .hero__intro {
@@ -1082,7 +1082,7 @@ svg {
   }
 
   .section {
-    padding: 100px 0;
+    padding: 88px 0;
   }
 
   .practice,
@@ -1128,7 +1128,7 @@ svg {
   }
 
   .contact {
-    padding: 100px 24px;
+    padding: 88px 24px;
   }
 
   .contact__details {
@@ -1149,6 +1149,10 @@ svg {
 }
 
 @media (max-width: 520px) {
+  .section {
+    padding: 72px 0;
+  }
+
   .hero__facts {
     grid-template-columns: 1fr;
   }
@@ -1167,13 +1171,21 @@ svg {
     border-radius: 48% 48% 1px 1px / 20% 20% 1px 1px;
   }
 
+  .portrait-frame figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
   .portrait-frame figcaption span:last-child {
-    display: none;
+    display: block;
+    font-size: 10px;
+    text-align: left;
   }
 
   .offering {
-    min-height: 380px;
-    padding: 28px;
+    min-height: 0;
+    padding: 28px 28px 104px;
     grid-template-columns: 24px 1fr;
     gap: 18px;
   }
@@ -1217,6 +1229,10 @@ svg {
     font-size: clamp(52px, 15vw, 72px);
   }
 
+  .contact {
+    padding: 72px 24px;
+  }
+
   .contact-option {
     padding: 16px 0;
     grid-template-columns: 1fr;
@@ -1250,7 +1266,7 @@ svg {
   }
 
   .footer-gratitude p {
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.7;
     text-align: left;
   }
