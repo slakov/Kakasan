@@ -12,6 +12,8 @@ The localized HTML files, privacy pages, sitemap, and robots file are generated 
 node scripts/build-site.mjs
 ```
 
+`google9b39de20a1b1818f.html` verifies the site in Google Search Console and must remain published at the site root.
+
 ## Languages and SEO
 
 English is the default language. Complete localized pages are available at stable, crawlable URLs for English (`/`), Ukrainian (`/uk/`), Russian (`/ru/`), and Dutch (`/nl/`). The Russian and Dutch pages make clear that lessons and personal communication are offered in English or Ukrainian.
