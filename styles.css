@@ -140,7 +140,7 @@ svg {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 24px;
 }
 
 .site-nav {
@@ -182,9 +182,9 @@ svg {
   z-index: 2;
   display: inline-flex;
   height: 34px;
-  padding: 0 9px;
+  padding: 0 7px;
   align-items: center;
-  gap: 6px;
+  gap: 3px;
   border: 1px solid rgba(236, 233, 223, 0.17);
   border-radius: 999px;
   background: rgba(236, 233, 223, 0.025);
@@ -196,27 +196,25 @@ svg {
   background: rgba(236, 233, 223, 0.17);
 }
 
-.language-switcher button {
-  min-width: 28px;
+.language-switcher a {
+  min-width: 25px;
   padding: 6px 2px;
-  border: 0;
-  background: transparent;
   color: var(--muted);
-  cursor: pointer;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.12em;
   line-height: 1;
+  text-align: center;
   transition: color 200ms ease;
 }
 
-.language-switcher button:hover,
-.language-switcher button:focus-visible,
-.language-switcher button[aria-pressed="true"] {
+.language-switcher a:hover,
+.language-switcher a:focus-visible,
+.language-switcher a[aria-current="page"] {
   color: var(--paper);
 }
 
-.language-switcher button[aria-pressed="true"] {
+.language-switcher a[aria-current="page"] {
   cursor: default;
 }
 
@@ -300,6 +298,14 @@ svg {
   line-height: 1.7;
 }
 
+.hero__language-note {
+  max-width: 520px;
+  margin: 18px 0 0;
+  color: var(--sage);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
 .hero__actions {
   display: flex;
   margin-top: 40px;
@@ -325,6 +331,12 @@ svg {
 .button--primary {
   background: var(--clay);
   color: var(--white);
+}
+
+.button--quiet {
+  border-color: rgba(13, 17, 16, 0.3);
+  background: transparent;
+  color: var(--ink);
 }
 
 .button:hover,
@@ -962,22 +974,194 @@ svg {
   color: var(--paper);
 }
 
-html[lang="uk"] .hero h1 {
+.site-footer__privacy {
+  display: flex;
+  margin: 2px 0 0;
+  justify-content: center;
+  gap: 20px;
+  color: rgba(200, 200, 189, 0.68);
+  font-size: 10px;
+}
+
+.site-footer__privacy a,
+.site-footer__privacy button {
+  padding: 4px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(168, 180, 158, 0.18);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.site-footer__privacy a:hover,
+.site-footer__privacy a:focus-visible,
+.site-footer__privacy button:hover,
+.site-footer__privacy button:focus-visible {
+  border-color: var(--clay);
+  color: var(--paper);
+}
+
+.consent-banner {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  z-index: 60;
+  display: grid;
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+  border: 1px solid rgba(13, 17, 16, 0.18);
+  background: var(--paper);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  color: var(--ink);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 220ms ease, transform 220ms var(--ease);
+}
+
+.consent-banner[hidden] {
+  display: none;
+}
+
+.consent-banner.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.consent-banner .eyebrow {
+  margin-bottom: 13px;
+  color: var(--sage-deep);
+}
+
+.consent-banner h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(26px, 2.4vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.consent-banner__copy > p:not(.eyebrow) {
+  max-width: 720px;
+  margin: 12px 0 7px;
+  color: #545d57;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.consent-banner__copy > a {
+  border-bottom: 1px solid rgba(13, 17, 16, 0.32);
+  font-size: 11px;
+}
+
+.consent-banner__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.consent-banner__actions .button {
+  min-width: 156px;
+  min-height: 48px;
+  padding: 0 18px;
+  white-space: nowrap;
+}
+
+.privacy-content {
+  width: min(880px, calc(100% - 48px));
+  min-height: calc(100vh - 120px);
+  margin: 0 auto;
+  padding: 156px 0 100px;
+}
+
+.privacy-content h1 {
+  max-width: 760px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(54px, 7vw, 92px);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+
+.privacy-content__lead {
+  max-width: 700px;
+  margin: 36px 0 0;
+  color: var(--paper-soft);
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.45;
+}
+
+.privacy-content__updated {
+  margin: 16px 0 64px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.privacy-content section {
+  display: grid;
+  padding: 34px 0;
+  grid-template-columns: minmax(180px, 0.42fr) minmax(0, 1fr);
+  gap: 40px;
+  border-top: 1px solid var(--line);
+}
+
+.privacy-content section h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.privacy-content section p,
+.privacy-content section ul {
+  margin: 0;
+  color: var(--muted);
+}
+
+.privacy-content section p + p,
+.privacy-content section p + .button {
+  margin-top: 18px;
+}
+
+.privacy-content section ul {
+  padding-left: 18px;
+}
+
+.privacy-content section a:not(.button) {
+  border-bottom: 1px solid rgba(168, 180, 158, 0.28);
+  color: var(--paper-soft);
+}
+
+.privacy-content__return {
+  display: inline-block;
+  margin-top: 40px;
+}
+
+:is(html[lang="uk"], html[lang="ru"]) .hero h1 {
   font-size: clamp(68px, 6.7vw, 108px);
   letter-spacing: -0.045em;
 }
 
-html[lang="uk"] .section-heading h2 {
+:is(html[lang="uk"], html[lang="ru"]) .section-heading h2 {
   font-size: clamp(48px, 4.7vw, 72px);
   letter-spacing: -0.045em;
 }
 
-html[lang="uk"] .about h2 {
+:is(html[lang="uk"], html[lang="ru"]) .about h2 {
   font-size: clamp(44px, 4.25vw, 66px);
   letter-spacing: -0.04em;
 }
 
-html[lang="uk"] .contact h2 {
+:is(html[lang="uk"], html[lang="ru"]) .contact h2 {
   font-size: clamp(52px, 5.25vw, 82px);
   letter-spacing: -0.045em;
 }
@@ -1131,7 +1315,7 @@ html[lang="uk"] .contact h2 {
     text-transform: none;
   }
 
-  html[lang="uk"] .site-nav a {
+  :is(html[lang="uk"], html[lang="ru"]) .site-nav a {
     font-size: 38px;
   }
 
@@ -1150,7 +1334,7 @@ html[lang="uk"] .contact h2 {
     font-size: clamp(56px, 17vw, 80px);
   }
 
-  html[lang="uk"] .hero h1 {
+  :is(html[lang="uk"], html[lang="ru"]) .hero h1 {
     font-size: clamp(52px, 14.5vw, 72px);
   }
 
@@ -1182,8 +1366,8 @@ html[lang="uk"] .contact h2 {
     padding: 88px 0;
   }
 
-  html[lang="uk"] .section-heading h2,
-  html[lang="uk"] .about h2 {
+  :is(html[lang="uk"], html[lang="ru"]) .section-heading h2,
+  :is(html[lang="uk"], html[lang="ru"]) .about h2 {
     font-size: clamp(44px, 10vw, 64px);
   }
 
@@ -1248,6 +1432,15 @@ html[lang="uk"] .contact h2 {
   .site-footer__main p:first-of-type {
     display: none;
   }
+
+  .consent-banner {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .consent-banner__actions {
+    justify-content: flex-end;
+  }
 }
 
 @media (max-width: 520px) {
@@ -1256,9 +1449,18 @@ html[lang="uk"] .contact h2 {
   }
 
   .language-switcher {
-    padding-right: 7px;
-    padding-left: 7px;
-    gap: 4px;
+    padding-right: 5px;
+    padding-left: 5px;
+    gap: 2px;
+  }
+
+  .language-switcher a {
+    min-width: 22px;
+    font-size: 8px;
+  }
+
+  .menu-toggle__label {
+    display: none;
   }
 
   .hero__facts {
@@ -1337,7 +1539,7 @@ html[lang="uk"] .contact h2 {
     font-size: clamp(52px, 15vw, 72px);
   }
 
-  html[lang="uk"] .contact h2 {
+  :is(html[lang="uk"], html[lang="ru"]) .contact h2 {
     font-size: clamp(46px, 13vw, 62px);
   }
 
@@ -1381,6 +1583,42 @@ html[lang="uk"] .contact h2 {
     font-size: 11px;
     line-height: 1.7;
     text-align: left;
+  }
+
+  .site-footer__privacy {
+    justify-content: flex-start;
+  }
+
+  .consent-banner {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    width: calc(100% - 24px);
+    padding: 22px;
+    gap: 20px;
+  }
+
+  .consent-banner__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .consent-banner__actions .button {
+    width: 100%;
+  }
+
+  .privacy-content {
+    width: calc(100% - 40px);
+    padding: 122px 0 72px;
+  }
+
+  .privacy-content h1 {
+    font-size: clamp(48px, 14vw, 68px);
+  }
+
+  .privacy-content section {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 }
 
